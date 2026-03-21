@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS v2 — Mission Control</title>
+  <link rel="icon" href="logo.webp">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+
+  <div class="hud-bar"></div>
+  <div id="stars"></div>
+  <div id="grid"></div>
+  <div id="scanline"></div>
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <div class="corner tl"><svg viewBox="0 0 60 60">
+      <path d="M0 60 L0 0 L60 0" fill="none" stroke="#00f5ff" stroke-width="1.5" opacity=".5" />
+      <circle cx="0" cy="0" r="4" fill="#00f5ff" opacity=".8" />
+    </svg></div>
+  <div class="corner tr"><svg viewBox="0 0 60 60">
+      <path d="M0 60 L0 0 L60 0" fill="none" stroke="#00f5ff" stroke-width="1.5" opacity=".5" />
+      <circle cx="0" cy="0" r="4" fill="#00f5ff" opacity=".8" />
+    </svg></div>
+  <div class="corner bl"><svg viewBox="0 0 60 60">
+      <path d="M0 60 L0 0 L60 0" fill="none" stroke="#00f5ff" stroke-width="1.5" opacity=".5" />
+      <circle cx="0" cy="0" r="4" fill="#00f5ff" opacity=".8" />
+    </svg></div>
+  <div class="corner br"><svg viewBox="0 0 60 60">
+      <path d="M0 60 L0 0 L60 0" fill="none" stroke="#00f5ff" stroke-width="1.5" opacity=".5" />
+      <circle cx="0" cy="0" r="4" fill="#00f5ff" opacity=".8" />
+    </svg></div>
+
+  <div class="app">
+
+    <header>
+      <div class="header-line"></div>
+      <h1>NEXUS</h1>
+      <div class="subtitle">Mission Control Interface v4.0</div>
+      <div class="live-dot">SYSTEM ONLINE</div>
+      <div class="header-line"></div>
+    </header>
+
+    <!-- PROGRESS -->
+    <div class="progress-section">
+      <div class="progress-header">
+        <div class="progress-title">▶ MISSION COMPLETION</div>
+        <div class="progress-pct" id="pct">0%</div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progFill" style="width:0%"></div>
+      </div>
+      <div class="progress-segments" id="progSegs"></div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-strip">
+      <div class="stat-card">
+        <div class="stat-num" id="sTot">0</div>
+        <div class="stat-label">Total</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="sDone">0</div>
+        <div class="stat-label">Complete</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="sLeft">0</div>
+        <div class="stat-label">Remaining</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="sOver" style="color:#ff2d78">0</div>
+        <div class="stat-label">Overdue</div>
+      </div>
+    </div>
+
+    <!-- INPUT -->
+    <div class="input-section">
+      <div class="input-label">▶ DEPLOY NEW MISSION</div>
+      <div class="input-row">
+        <input class="task-input" id="inp" type="text" placeholder="Enter mission objective..." autocomplete="off" />
+        <input class="date-input" id="dueDate" type="date" title="Set due date" />
+        <button class="add-btn" id="addBtn"><span>+ LAUNCH</span></button>
+      </div>
+      <div class="priority-row">
+        <span class="priority-label">Threat Level:</span>
+        <button class="p-btn critical active" data-p="critical">CRITICAL</button>
+        <button class="p-btn high" data-p="high">HIGH</button>
+        <button class="p-btn normal" data-p="normal">NORMAL</button>
+        <div class="sound-toggle on" id="soundToggle" title="Toggle sound">SOUND</div>
+      </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filter-row">
+      <button class="f-btn active" data-f="all">ALL OPS</button>
+      <button class="f-btn" data-f="active">ACTIVE</button>
+      <button class="f-btn" data-f="done">COMPLETE</button>
+      <button class="f-btn" data-f="overdue">OVERDUE</button>
+    </div>
+
+    <!-- TASK LIST -->
+    <div class="task-list" id="list"></div>
+
+  </div>
+
+  <div class="hud-bottom">
+    <span>NEXUS MISSION CTRL v4.0</span>
+    <span class="clock" id="clock">--:--:--</span>
+    <span id="hudDate">--/--/----</span>
+  </div>
+
+
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
